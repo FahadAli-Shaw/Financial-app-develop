@@ -1,0 +1,64 @@
+﻿body.anonymous {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @include full-page-background(login);
+
+    top-menu {
+        opacity: 0;
+        user-select: none;
+        cursor: default;
+        margin-top: -40px;
+    }
+}
+
+.form-signin {
+    max-width: 400px;
+    padding: 15px;
+    margin: 0 auto;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 5px;
+    }
+}
+
+.form-signin .form-signin-heading {
+  margin-bottom: 10px;
+}
+
+.login-button-spacer {
+    margin-top: 10px;
+    text-align: right;
+}
+
+body.anonymous .progress-indicator-bar {
+  background: #FFF;
+}
+
+body.anonymous .progress-indicator-spinner {
+    border-top-color: #FFF;
+    border-left-color: #FFF;
+}
+
+@include media-breakpoint-down(sm) {
+    body.anonymous {
+        h1 {
+            font-size: 2rem;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+body.anonymous .invalid-feedback {
+    text-shadow: black 0px 0px 5px;
+}

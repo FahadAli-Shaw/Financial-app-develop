@@ -1,0 +1,36 @@
+{
+    "iisSettings": {
+        "windowsAuthentication": false,
+        "anonymousAuthentication": true,
+        "iisExpress": {
+            "applicationUrl": "http://localhost:5000/",
+            "sslPort": 0
+        }
+    },
+    "profiles": {
+        "web": {
+            "commandName": "Project",
+            "launchUrl": "http://localhost:5000",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "MAIL__SKIPTEST": "True"
+            }
+        },
+        "web-perf-test": {
+            "commandName": "Project",
+            "launchUrl": "http://localhost:5000",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Production",
+                "ASPNETCORE_FORCE_USERSECRETS": "Production",
+                "MAIL__SKIPTEST": "True"
+            }
+        },
+        "IIS Express": {
+            "commandName": "IISExpress",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "use64Bit": true
+        }
+    }
+}

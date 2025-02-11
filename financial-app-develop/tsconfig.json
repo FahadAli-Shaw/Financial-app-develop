@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "alwaysStrict": true,
+        "baseUrl": ".",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "preserveConstEnums": true,
+        "removeComments": false,
+        "strictBindCallApply": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": false,
+        "strictPropertyInitialization": true,
+        "sourceMap": true,
+        "incremental": true
+    },
+    "compileOnSave": false
+}

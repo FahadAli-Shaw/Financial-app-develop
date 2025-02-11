@@ -1,0 +1,41 @@
+.install-prompt {
+    display: block;
+
+    background: $gray-700;
+    border-top: 3px solid $accent-color;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 0.5rem 2rem;
+
+    z-index: 100;
+    transform: translateY(110%);
+
+    text-align: center;
+
+    &__title {
+        font-size: 1.1rem;
+        margin: 0 2rem 0.5rem 2rem;
+        line-height: 1.5;
+
+        display: inline-block;
+        vertical-align: text-top;
+    }
+
+    &__dismiss-button {
+        float: right;
+        margin-top: 0.5rem;
+        cursor: pointer;
+    }
+
+    &--is-animating {
+        transition: transform 1500ms ease-in-out;
+    }
+
+    &--is-visible {
+        transform: translateY(0%);
+    }
+}

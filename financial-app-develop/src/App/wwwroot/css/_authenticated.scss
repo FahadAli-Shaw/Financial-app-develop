@@ -1,0 +1,156 @@
+﻿body.authenticated {
+    padding-top: 0;
+}
+
+.btn-group + .panel {
+    margin-top: 1em;
+}
+
+.page-loader {
+    padding: 100px 0;
+
+    .page-loader-spinner {
+        animation: rotating 750ms linear infinite;
+        font-size: 20px;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    .page-loader-text {
+        font-size: 18px;
+        margin-left: 1em;
+
+        vertical-align: middle;
+    }
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.invalid-feedback-list {
+    white-space: pre-line;
+}
+
+form[role='form'] {
+    .button-bar *:last-child::after {
+        @extend .fas;
+        @include fa-icon();
+        content: $fa-var-circle-notch;
+        animation: rotating 750ms linear infinite;
+        color: $accent-color;
+        margin-left: 2em;
+        opacity: 0;
+        transition: opacity 300ms linear;
+    }
+
+    &.is-busy .button-bar {
+        *:last-child::after {
+            opacity: 1;
+        }
+    }
+}
+
+.table-sheet-archive {
+    td {
+        border: none;
+        vertical-align: middle;
+    }
+
+    td.col-number {
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    td.col-actions {
+        > .btn {
+            margin-bottom: 5px;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        td.col-actions {
+            text-align: right;
+        }
+    }
+}
+
+.balance-negative {
+    @extend .text-danger;
+
+    .bg-danger & {
+        color: darken(crimson, 25%) !important;
+    }
+}
+
+.btn-group-justified {
+    display: flex; // inline-flex by default
+
+    > .btn {
+        flex: 1 1 auto;
+    }
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1;
+
+    small {
+        opacity: 0.5;
+        font-size: 60%;
+
+        display: inline-block; // Wrap the entire block around on small screens
+    }
+}
+
+.roles-indicator {
+    margin-left: 1em;
+    color: $cyan;
+    font-style: italic;
+    font-size: 70%;
+
+    &::before {
+        content: '(';
+    }
+
+    &::after {
+        content: ')';
+    }
+}
+
+$full-page-backgrounds: (
+    about: about,
+    dashboard: dashboard,
+    impersonate: impersonate,
+    logoff: logoff,
+    login: login
+);
+
+@each $clazz, $bg in $full-page-backgrounds {
+    body.page-#{$clazz} {
+        @include full-page-background($bg);
+    }
+}
+
+.form-control-inline {
+    margin-bottom: 0.5rem;
+    @include media-breakpoint-up(md) {
+        margin-bottom: 0;
+        display: inline-block;
+        width: auto;
+        vertical-align: baseline;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        + .btn {
+            vertical-align: baseline;
+        }
+    }
+}

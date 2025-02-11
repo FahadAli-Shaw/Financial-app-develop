@@ -1,0 +1,60 @@
+$touch-list-border-color: $gray-600;
+$touch-list-active-color: $gray-700;
+
+.touch-list {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid $touch-list-border-color;
+
+    &__item {
+        border-bottom: 1px solid $touch-list-border-color;
+
+        &-body {
+            padding: 0.6rem 0.5rem;
+
+            &:active {
+                background-color: $touch-list-active-color;
+            }
+        }
+
+        &-title {
+            &:after {
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                opacity: 0.6;
+                float: right;
+
+                content: fa-content($fa-var-chevron-right);
+            }
+
+            &,
+            &:link,
+            &:visited,
+            &:hover,
+            &:active {
+                text-decoration: none;
+                color: #fff;
+                font-weight: bold;
+                font-size: 1.2em;
+                line-height: 2;
+            }
+        }
+
+        &-details {
+            color: $gray-500;
+            font-size: 0.8em;
+        }
+    }
+
+    &--full-width {
+        $neg-margin: ($grid-gutter-width / 2) * -1;
+        margin-left: $neg-margin;
+        margin-right: $neg-margin;
+
+        .swipeable .touch-list__item-body {
+            $extra-padding: $neg-margin * -2;
+            padding-left: $extra-padding;
+            padding-right: $extra-padding;
+        }
+    }
+}

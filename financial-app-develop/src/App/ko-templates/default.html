@@ -1,0 +1,44 @@
+﻿<div class="jumbotron dashboard-action-container">
+    <h1 class="display-3" ko-text="title"></h1>
+
+    <!-- ko responsiveRender: 'desktop' -->
+    <p class="lead"><strong>Welkom</strong> bij de financiële huishouding. Je bent ingelogd als <strong>{{currentUserName}}</strong> <span ko-visible="currentGroupName">[{{currentGroupName}}]</span>.
+        Wat wil je vandaag doen?</p>
+    <hr class="my-4">
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" ko-route="now" role="button">Huidige maand bekijken</a>
+    </p>
+
+    <p>Begin direct met de bovenstaande knop of kies uit één van de andere opties.</p>
+    <!-- /ko -->
+
+    <ul class="dashboard-action-list">
+        <li class="dashboard-action__primary">
+            <a href="#" ko-route="now">Huidige maand bekijken / bewerken</a>
+        </li>
+
+        <li>
+            <a href="#" ko-route="archive">Archief financiën bekijken</a>
+        </li>
+        <li>
+            <a href="#" ko-route="report">Rapportage financiën bekijken</a>
+        </li>
+        <li>
+            <a href="#" ko-route="manage.entry-template">Regeltemplates beheren</a>
+        </li>
+        <li>
+            <a href="#" ko-route="manage.category">Categorieën beheren</a>
+        </li>
+        <li class="dashboard-action__separated">
+            <a href="#" ko-route="manage.impersonate">Als een andere gebruiker inloggen</a>
+        </li>
+
+        <li>
+            <a href="#" ko-route="my-account">Mijn instellingen en accountbeveiliging bekijken</a>
+        </li>
+    </ul>
+    
+    <div class="alert alert-info" ko-visible="isImpersonated">
+        <strong>Let op!</strong> Je bent nu ingelogd als een andere gebruiker, <a href="#" ko-async-click="exitImpersonation" class="alert-link">klik om de sessie te stoppen</a>.
+    </div>
+</div>

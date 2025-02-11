@@ -1,0 +1,93 @@
+﻿@using Microsoft.AspNetCore.Hosting
+@using Newtonsoft.Json
+@inject IWebHostEnvironment HostingEnvironment
+
+<!DOCTYPE html>
+<html lang="nl"
+      data-app-version="@ViewBag.AppVersion">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Financial App</title>
+
+        <base href="/">
+
+        @{
+            await Html.RenderPartialAsync("_appmeta");
+        }
+
+        <script fa-minify="true">
+            function ss(file) {
+                var d = document, s = d.createElement('link');
+                s.href = file; s.rel='stylesheet';
+                d.head.appendChild(s);
+            };
+            function pf(file) {
+                var d = document, s = d.createElement('script');
+                s.src = file; s.defer=true; s.async=false;
+                d.body.appendChild(s);
+            };
+            function sx(s,p) {
+                try {
+                    window[p] = new Function(s);
+                } catch(e){}
+            }
+            sx('(async function(){})','es2017');
+        </script>
+
+        <link href="/build/bootstrapper/bootstrapper.css" rel="stylesheet" fa-check-exists="true"/>
+
+        <environment include="Development">
+            <script>var DEBUG = true; window.DEBUG = DEBUG;</script>
+        </environment>
+        
+        @Html.Raw(JavaScriptSnippet.FullScript)
+    </head>
+    <body ko-css:anonymous="!context.authentication.isAuthenticated()"
+          ko-css:authenticated="context.authentication.isAuthenticated">
+        <loading-bar></loading-bar>
+
+        <top-menu>
+            <div class="top-menu-placeholder">
+                <h1 class="top-menu-placeholder__brand">Financial App</h1>
+            
+            </div>
+        </top-menu>
+
+        <page-container class="container">
+            <div class="container-placeholder">
+                <span class="container-placeholder__throbber-container">
+                    <span class="container-placeholder__throbber container-placeholder__throbber-start">💻</span>
+                    <span class="container-placeholder__throbber container-placeholder__throbber-object">📄</span>
+                    <span class="container-placeholder__throbber container-placeholder__throbber-end">📱</span>
+                </span>
+                <p class="container-placeholder__text">
+                    Bezig met laden...
+                </p>
+            </div>
+        </page-container>
+        
+        <install-prompt class="install-prompt"></install-prompt>
+
+        <span style="color:#FFF" id="scrollBottom">&nbsp;</span>
+
+        <noscript>
+            <div class="alert alert-danger">
+                <strong>Sorry!</strong> Om deze applicatie te gebruiken heb je javascript benodigd. Dit heb je niet aan staan.
+            </div>
+        </noscript>
+
+
+        <environment include="Development">
+            <script src="/build/es5/eventsource-polyfill.js" fa-polyfill-test="window.EventSource"></script>
+        </environment>
+        <link href="/build/es5/app.css" rel="stylesheet" fa-versioned-file="true" fa-check-exists="true" fa-polyfill-test="window.es2017"/>
+        <link href="/build/es2017/app.css" rel="stylesheet" fa-versioned-file="true" fa-check-exists="true" fa-polyfill-test="!window.es2017"/>
+        <script src="/build/es5/es6-promise.js" fa-polyfill-test="window.Promise"></script>
+        <script src="/build/es5/lib.js" fa-versioned-file="true" fa-polyfill-test="window.es2017" defer></script>
+        <script src="/build/es5/app.js" fa-versioned-file="true" fa-polyfill-test="window.es2017" defer></script>
+        <script src="/build/es2017/lib.js" fa-versioned-file="true" fa-polyfill-test="!window.es2017" defer></script>
+        <script src="/build/es2017/app.js" fa-versioned-file="true" fa-polyfill-test="!window.es2017" defer></script>
+    </body>
+</html>

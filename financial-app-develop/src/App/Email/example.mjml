@@ -1,0 +1,27 @@
+<mjml>
+  <mj-head>
+    <mj-preview>Welkom bij Financial App!</mj-preview>
+    <mj-title>Welkom bij Financial App!</mj-title>
+
+    <mj-include path="./common.include.mjml" />
+  </mj-head>
+  <mj-body background-color="#222">
+    <mj-include path="./header.include.mjml" />
+
+    <mj-hero background-url="../wwwroot/images/bg/email/welcome.jpg"
+      mode="fixed-height"
+      background-width="600px"
+      background-height="669px"
+      background-color="#2a3448"
+      padding="100px 0px">
+      <mj-text align="center" color="#FFF" css-class="hero-text" font-weight="bold" font-size="40px">Welkom bij Financial App</mj-text>
+      <mj-button href="">Nu starten</mj-button>
+    </mj-hero>
+
+    <mj-section background-color="#2B2B2B">
+       <mj-column><mj-text>(insert welcome text)</mj-text></mj-column>
+    </mj-section>
+
+    <mj-include path="./footer.include.mjml" />
+  </mj-body>
+</mjml>

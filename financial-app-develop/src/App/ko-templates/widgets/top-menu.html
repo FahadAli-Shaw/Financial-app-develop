@@ -1,0 +1,70 @@
+﻿<div class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
+    <a class="navbar-brand" href="/" ko-text="$appContext.title"></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-menu-content" aria-controls="top-menu-content"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="top-menu-content">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" ko-css="hasLocation('default')">
+                <a class="nav-link" href="#" ko-route="default">Home</a>
+            </li>
+            <li class="nav-item" ko-css="hasLocation(nowPath)">
+                <a class="nav-link" href="#" ko-route="now">Huidige maand</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="javascript:void(0)" ko-css="hasLocation('report')" class="nav-link dropdown-toggle" data-toggle="dropdown">Rapportage
+                    <b class="caret"></b></a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" ko-css="hasLocation('report.general')" ko-route="report" href="#">Algemeen</a>
+                    <a class="dropdown-item" ko-css="hasLocation('report.budget')" ko-route="report.budget" href="#">Begroting</a>
+                    <a class="dropdown-item" ko-css="hasLocation('report.tags')" ko-route="report.tags" href="#">Per label</a>
+                </div>
+            </li>
+            <li class="nav-item" ko-css="hasLocation('archive')">
+                <a class="nav-link" href="#" ko-route="archive">Archief</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav">
+            <li class="navbar-text navbar__context-indicator">
+                {{currentLoginTooltip}}
+            </li>
+            <li class="nav-item navbar__logged-in-text" ko-visible="$appContext.authentication.isAuthenticated">
+                <a href="#" class="nav-link" ko-route="my-account">
+                    <span ko-tooltip="currentLoginTooltip">
+                        Ingelogd als {{currentUserName}}
+                        <span class="fas fa-cog"></span>
+                    </span>
+
+                    <span class="badge badge-info" ko-text="activeClientCount" ko-tooltip:text="activeClientTooltip" ko-tooltip:force-open="showActiveClientTooltip"
+                        ko-visible="isConnected() &amp;&amp; activeClientCount() > 1">0</span>
+
+                    <span class="roles-indicator" ko-visible="roles" ko-text="roles"></span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="javascript:void(0)" ko-css="hasLocation('manage')" class="nav-link dropdown-toggle" data-toggle="dropdown">Beheer<b
+                        class="caret"></b></a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" ko-css="hasLocation('manage.entry-template')" ko-route="manage.entry-template" href="#">Regeltemplates</a>
+                    <a class="dropdown-item" ko-css="hasLocation('manage.category')" ko-route="manage.category" href="#">Categorieëen</a>
+                    <a class="dropdown-item" ko-css="hasLocation('manage.tag')" ko-route="manage.tag" href="#">Labels</a>
+                    <a class="dropdown-item" ko-css="hasLocation('manage.user')" ko-route="manage.user" href="#">Gebruikers</a>
+                    <a class="dropdown-item" ko-css="hasLocation('manage.impersonate')" ko-route="manage.impersonate" href="#">Account
+                        wisselen
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" ko-css="hasLocation('auth.logoff')" ko-route="auth.logoff">Uitloggen</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link nav-link-hidden-label" ko-css="hasLocation('about')" ko-route="about"><span class="fas fa-question-circle"></span>
+                    <span class="nav-link-label">Over Financial App</span></a>
+            </li>
+        </ul>
+    </div>
+</div>

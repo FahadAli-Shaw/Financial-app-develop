@@ -1,0 +1,88 @@
+<div class="about-container">
+    <h1><span class="application-header" ko-text="$appContext.title"></span></h1>
+
+    <p>
+        <small>Ontwikkeld door Sebastiaan Dammann | <a href="https://damsteen.nl">https://damsteen.nl</a></small>
+    </p>
+
+    <h2>Over Financial App</h2>
+
+    <p>
+        Financial App v{{appVersion}}.
+
+        Online op <a href="https://github.com/sebazzz/financial-app"><span class="fab fa-github"></span> Github</a>.
+    </p>
+    
+    <p>
+        <small>App version ID: {{appVersionId}} | client version id: {{clientVersionId}} | {{isMobileMode ? 
+            'Mobile mode' : 'Desktop mode'}}</small>
+    </p>
+
+    <h3 class="header-secondary">Offline ondersteuning</h3>
+    <p>
+        <strong>Offline ondersteuning mogelijk:</strong>
+        <span ko-visible="serviceWorker.isSupported"><span class="fas fa-check-square"></span> Ja</span>
+        <span ko-hidden="serviceWorker.isSupported"><span class="fas fa-times"></span> Nee</span>
+    </p>
+    <p>
+        <strong>Offline ondersteuning geïnstalleerd:</strong>
+        <span ko-visible="serviceWorker.isInstalled"><span class="fas fa-check-square"></span> Ja</span>
+        <span ko-hidden="serviceWorker.isInstalled"><span class="fas fa-times"></span> Nee</span>
+    </p>
+
+    <div ko-visible="serviceWorker.isInstalled">
+        <p>
+            <strong>Versie: </strong> <code ko-click="serviceWorker.requestServiceWorkerVersion" ko-text="serviceWorker.serviceWorkerVersion() || 'Onbekend'"></code>
+        </p>
+
+        <p>
+            <strong>Runtime target: </strong> <code ko-click="serviceWorker.requestServiceWorkerBuildType" ko-text="serviceWorker.serviceWorkerBuildType() || 'Onbekend'"></code>
+        </p>
+
+        <p>
+            <strong>URL:</strong> <code ko-text="serviceWorker.scriptUrl || '?'"></code> | State: <code ko-text="serviceWorker.state || '?'"></code>
+        </p>
+
+        <p>
+            <input type="button" value="Upgrade" class="btn btn-outline-secondary" ko-click="serviceWorker.update"/>
+            <input type="button" value="Deïnstalleren" class="btn btn-danger" ko-click="serviceWorker.unregister"/>
+            <input type="button" value="Herladen" class="btn btn-info" ko-click="serviceWorker.forceReload"/>
+        </p>
+    </div>
+
+    <p ko-visible="serviceWorker.isSupported">
+        <input type="button" value="(Her)installeren" class="btn btn-success" ko-click="serviceWorker.register"/>
+    </p>
+
+    <div class="service-worker-console"
+         ko-visible="serviceWorker.isServiceWorkerConsoleVisible">
+        <div class="service-worker-console__header">Console</div>
+        <ul class="service-worker-console__body" ko-foreach="serviceWorker.serviceWorkerConsole"><li ko-text="$data"></li></ul>
+    </div>
+
+    <h2>Attribution</h2>
+    <p>
+        <strong>Login background:</strong>
+        Photo by <a href="https://unsplash.com/photos/YEuXuNZ-SKM?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Conor Luddy</a> on Unsplash
+    </p>
+
+    <p>
+        <strong>Dashboard background:</strong>
+        Photo by <a href="https://unsplash.com/photos/_aNFQ_7RxNc?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Chris Adamus</a> on Unsplash
+    </p>
+
+    <p>
+        <strong>About page background:</strong>
+        Photo by <a href="https://unsplash.com/photos/AaEQmoufHLk?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Markus Spiske</a> on Unsplash
+    </p>
+
+    <p>
+        <strong>Log-off page background:</strong>
+        Photo by <a href="https://unsplash.com/photos/4WJcte5CByc?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Braden Hopkins</a> on Unsplash
+    </p>
+
+    <p>
+        <strong>Account switch page background:</strong>
+        Photo by <a href="https://unsplash.com/photos/LfqmND-hym8?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">runnyrem</a> on Unsplash
+    </p>
+</div>

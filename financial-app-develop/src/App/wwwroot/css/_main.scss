@@ -1,0 +1,154 @@
+﻿$negative-color: darken(red, 10%);
+
+/**** Rotation animation */
+@keyframes loading-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+html,
+body {
+    height: 100%;
+    // Set scroll behavior, ref: https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior
+    scroll-behavior: smooth;
+}
+
+body {
+    transition: background-color 500ms linear;
+
+    top-menu {
+        transition: opacity 500ms linear;
+    }
+
+    // Fix elderly font-size that apparently happens on the Moto G
+    @media (-webkit-min-device-pixel-ratio: 3) {
+        font-size: 0.9rem;
+    }
+}
+
+* + h2,
+* + h3 {
+    margin-top: 2rem;
+}
+
+h3.header-secondary {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.rotate {
+    animation: loading-spinner 700ms linear infinite;
+}
+
+/*** Required for AngularJS Bootstrap UI */
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+    cursor: pointer;
+}
+
+.inline-block {
+    display: inline-block !important;
+}
+
+.validation-block {
+    display: block;
+    text-align: right;
+    font-size: 9pt;
+}
+
+span.negative,
+div.input-group.negative .form-control,
+div.negative .form-control {
+    color: $negative-color;
+}
+
+.preserve-whitespace {
+    white-space: pre-wrap;
+}
+
+.actionable-list {
+    li {
+        padding: 10px 2px;
+    }
+}
+
+// Custom elements
+top-menu,
+page-container,
+loading-bar {
+    display: block;
+}
+
+top-menu {
+    margin-bottom: 1rem;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn {
+    &.disabled,
+    &[disabled] {
+        cursor: not-allowed;
+    }
+}
+
+.input-money {
+    background: url(../images/icons/currency-euro.png) 10px center / 1em no-repeat $input-bg;
+    padding-left: 2em;
+}
+
+input[type='color'].form-control {
+    display: block;
+    width: 150px;
+    padding: 5px;
+    height: 50px;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .col-hide-mobile {
+        display: none;
+    }
+}
+
+.about-container {
+    text-align: center;
+
+    h1 {
+        margin-bottom: 1em;
+
+        @include media-breakpoint-down(sm) {
+            font-size: 1.9rem;
+        }
+
+        > span {
+            display: inline-block;
+            padding-right: 70px; // visually center the header
+        }
+    }
+}
+
+.pull-right {
+    float: right;
+}
+
+// Allow breaks to happen on mobile portrait mode only
+$portrait-max: breakpoint-max('sm', $grid-breakpoints);
+@media (max-width: $portrait-max) and (orientation: portrait) {
+    .portrait-break {
+        visibility: hidden;
+        display: block;
+    }
+}
