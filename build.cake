@@ -138,7 +138,7 @@ Task("Generate-MigrationScript")
 	
 	}
 );
-
+//comments
 Task("Set-NodeEnvironment")
 	.Does(() => {
 		Information("Setting NODE_ENV to {0}", nodeEnv);
@@ -388,4 +388,3 @@ Task("Default")
 // EXECUTION
 //////////////////////////////////////////////////////////////////////
 
-RunTarget(target);
